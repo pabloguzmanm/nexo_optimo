@@ -143,7 +143,9 @@ const PROPERTY_DATA = [
     category: "Una estadía a tu ritmo",
     location: "Edmundo Eluchans 2105, Viña del Mar",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Edmundo%20Eluchans%202105%2C%20Vi%C3%B1a%20del%20Mar",
-    description: "Un lugar pensado para hacer una pausa y sentirte a gusto durante tu viaje.",
+    description: "Un lugar pensado para hacer una pausa y sentirte a gusto durante tu viaje. Excelente vista al mar ubicado en el sector de Reñaca de Viña del mar.Departamento moderno, cómodo y seguro.",
+    accommodationDetails: "6 huéspedes · 2 habitaciones · 2 camas · 2 baños",
+    available: false,
     price: "",
     images: INFINITY_IMAGES,
     coverImage: INFINITY_IMAGES[6],
@@ -220,15 +222,17 @@ function renderProperties() {
   propertyGrid.innerHTML = PROPERTY_DATA.map((property, propertyIndex) => {
     const cover = property.coverImage || property.images[0];
     const priceLabel = property.price ? property.price : "Valor a consultar";
+    const isUnavailable = property.available === false;
     const mapUrl = safeUrl(property.mapUrl);
     const location = mapUrl
       ? `<a class="location map-location" href="${mapUrl}" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de ${property.name} en Google Maps: ${property.location}" title="${property.location}">Ver mapa ↗</a>`
       : `<span class="location">${property.location}</span>`;
     return `
-      <article class="property-card">
+      <article class="property-card${isUnavailable ? " is-unavailable" : ""}">
         <button class="card-photo" type="button" data-property="${propertyIndex}" aria-label="Ver fotos de ${property.name}">
           <img src="${cover}" alt="${property.name}: fotografía del alojamiento" loading="lazy">
           <span class="photo-count">VER FOTOS&nbsp; ↗</span>
+          ${isUnavailable ? '<span class="availability-badge">ARRENDADO · NO DISPONIBLE</span>' : ""}
         </button>
         <div class="card-body">
           <div class="card-kicker"><span>${property.category}</span>${location}</div>
@@ -249,6 +253,10 @@ function renderProperties() {
 
   propertySelect.insertAdjacentHTML("beforeend", PROPERTY_DATA.map((property) =>
     `<option value="${property.name}">${property.name}</option>`
+  ).join(""));
+  const reservationPropertySelect = document.querySelector("#reservation-property-select");
+  reservationPropertySelect.insertAdjacentHTML("beforeend", PROPERTY_DATA.map((property) =>
+    `<option value="${property.name}"${property.available === false ? " disabled" : ""}>${property.name}${property.available === false ? " (No disponible)" : ""}</option>`
   ).join(""));
 }
 
@@ -380,6 +388,11 @@ if (reservationForm) {
     const guestPhone = formData.get("reservationPhone").toString().trim();
     const guestEmail = formData.get("reservationEmail").toString().trim();
     const property = formData.get("reservationProperty").toString().trim();
+    const selectedProperty = PROPERTY_DATA.find((item) => item.name === property);
+    if (selectedProperty && selectedProperty.available === false) {
+      status.textContent = `${property} está arrendado y no está disponible para reservar.`;
+      return;
+    }
     const checkin = formData.get("checkin").toString();
     const checkout = formData.get("checkout").toString();
     const adults = formData.get("adults").toString();
