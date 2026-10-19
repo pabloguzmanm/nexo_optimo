@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="Descubre alojamientos seleccionados por Nexo Óptimo. Encuentra tu próxima estadía y reserva con confianza.">
+  <title>Nexo Óptimo | Alojamientos con sentido</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Nexo Óptimo, inicio">
+      <span class="brand-mark" aria-hidden="true">N·O</span>
+      <span class="brand-name">NEXO <b>ÓPTIMO</b><small>ALOJAMIENTOS</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú"><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+      <a href="#alojamientos">Alojamientos</a>
+      <a href="#nosotros">Nuestra esencia</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav-cta" href="#reserva">Reservar ahora <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> ESPACIOS PARA SENTIRTE BIEN</p>
+        <h1>Tu próxima historia<br>comienza <em>aquí.</em></h1>
+        <p class="hero-text">Alojamientos pensados para disfrutar cada momento. Encuentra ese lugar que convierte una escapada en un recuerdo.</p>
+        <a class="button button-dark" href="#alojamientos">Explorar alojamientos <span aria-hidden="true">↓</span></a>
+        <div class="hero-note"><span class="note-line"></span><span>Estadías con intención,<br>momentos que permanecen.</span></div>
+      </div>
+      <div class="hero-visual">
+        <img src="propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.58.jpeg" alt="Piscina y espacios exteriores de Rocamar" fetchpriority="high">
+        <div class="hero-image-label"><span class="label-dot"></span> UN LUGAR PARA DESCONEXIÓN</div>
+        <div class="hero-stamp" aria-hidden="true"><span>DESCUBRE</span><b>algo<br>especial</b><span>CON NEXO ÓPTIMO</span></div>
+      </div>
+      <a class="scroll-cue" href="#alojamientos" aria-label="Desplazarse a alojamientos"><span></span> DESLIZA PARA DESCUBRIR</a>
+    </section>
+
+    <section class="properties section-wrap" id="alojamientos">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> LUGARES PARA QUEDARSE</p><h2>Un espacio para<br><em>cada manera de viajar.</em></h2></div>
+        <p class="section-intro">Conoce nuestros alojamientos, mira sus detalles y encuentra la opción perfecta para tu próxima estadía.</p>
+      </div>
+      <div class="property-grid" id="property-grid" aria-live="polite"></div>
+      <div class="section-footnote"><span class="footnote-star">✳</span><span>¿Tienes una pregunta? <a href="#contacto">Conversemos sobre tu estadía <span aria-hidden="true">↗</span></a></span></div>
+    </section>
+
+    <section class="manifesto" id="nosotros">
+      <div class="manifesto-image">
+        <img src="propiedades/propiedad2/WhatsApp Image 2026-10-08 at 12.45.08.jpeg" alt="Interior cálido de uno de nuestros alojamientos" loading="lazy">
+        <span class="image-caption">ESPACIOS QUE SE SIENTEN COMO TU LUGAR</span>
+      </div>
+      <div class="manifesto-copy">
+        <p class="eyebrow eyebrow-light"><span></span> MÁS QUE UN LUGAR DONDE DORMIR</p>
+        <h2>La diferencia está<br>en <em>cómo te sientes.</em></h2>
+        <p>En Nexo Óptimo creemos que una buena estadía empieza mucho antes de llegar. Por eso reunimos espacios acogedores y una atención cercana para que puedas enfocarte en disfrutar.</p>
+        <a class="text-link text-link-light" href="#contacto">Hablemos de tu viaje <span aria-hidden="true">↗</span></a>
+        <span class="manifesto-mark" aria-hidden="true">N<span>·</span>O</span>
+      </div>
+    </section>
+
+    <section class="video-section section-wrap" id="video">
+      <div class="video-card">
+        <div class="video-orbit" aria-hidden="true"><span>▶</span></div>
+        <div><p class="eyebrow"><span></span> CONOCE NUESTROS ESPACIOS</p><h2>Una mirada más cerca.</h2><p>Recorre nuestros alojamientos en video y empieza a imaginar tu próxima estadía.</p></div>
+        <a class="button button-outline" id="video-link" href="#video">Ver video <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <div class="contact-inner section-wrap">
+        <div class="contact-copy"><p class="eyebrow"><span></span> ESTAMOS PARA AYUDARTE</p><h2>¿Lo conversamos?</h2><p>Cuéntanos qué tienes en mente. Nuestro equipo te ayudará a encontrar el espacio ideal.</p>
+          <div class="contact-direct"><span class="direct-icon" aria-hidden="true">✳</span><span>¿Prefieres hablar directamente?<br><a id="contact-email" href="#contacto">Escríbenos un mensaje <span aria-hidden="true">↗</span></a></span></div>
+        </div>
+        <div class="contact-column">
+          <form class="contact-form" id="contact-form">
+            <div class="form-row"><label>Tu nombre<input type="text" name="name" placeholder="¿Cómo te llamas?" autocomplete="name" required></label><label>Correo electrónico<input type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required></label></div>
+            <label>¿Sobre qué alojamiento quieres saber?<select name="property" id="property-select" required><option value="" disabled selected>Selecciona una opción</option></select></label>
+            <label>Tu mensaje<textarea name="message" rows="4" placeholder="Cuéntanos un poco más..." required></textarea></label>
+            <button class="button button-dark form-submit" type="submit">Enviar consulta <span aria-hidden="true">↗</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation-section" id="reserva">
+      <div class="section-wrap reservation-inner">
+        <div class="reservation-heading">
+          <p class="eyebrow"><span></span> PLANEA TU ESTADÍA</p>
+          <h2>Reserva tu estadía</h2>
+          <p>Compártenos los detalles de tu viaje y nos pondremos en contacto contigo.</p>
+        </div>
+        <form class="contact-form reservation-form" id="reservation-form">
+          <div class="form-row">
+            <label>Nombre completo<input type="text" name="reservationName" placeholder="Tu nombre" autocomplete="name" required></label>
+            <label>Teléfono<input type="tel" name="reservationPhone" placeholder="+56 9 1234 5678" autocomplete="tel" required></label>
+          </div>
+          <div class="form-row">
+            <label>Correo<input type="email" name="reservationEmail" placeholder="tu@correo.com" autocomplete="email" required></label>
+            <label>Alojamiento<select name="reservationProperty" required>
+              <option value="" disabled selected>Selecciona un alojamiento</option>
+              <option value="Carabela">Carabela</option>
+              <option value="Infinity">Infinity</option>
+              <option value="Rocamar 1">Rocamar 1</option>
+              <option value="Rocamar 2">Rocamar 2</option>
+            </select></label>
+          </div>
+          <div class="form-row">
+            <label>Check-in<input type="date" name="checkin" required></label>
+            <label>Check-out<input type="date" name="checkout" required></label>
+          </div>
+          <div class="guest-row">
+            <label>Adultos<input type="number" name="adults" min="1" max="12" value="2" required></label>
+            <label>Niños<input type="number" name="children" min="0" max="12" value="0" required></label>
+            <label>¿Viajas con mascotas?<select name="pets" required><option value="No">No</option><option value="Sí">Sí</option></select></label>
+          </div>
+          <label>Mensaje de la reserva<textarea name="reservationMessage" rows="4" placeholder="Cuéntanos tus fechas, necesidades o detalles de la estancia..."></textarea></label>
+          <button class="button button-dark form-submit" type="submit">Enviar reserva <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="reservation-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top"><a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true">N·O</span><span class="brand-name">NEXO <b>ÓPTIMO</b><small>ALOJAMIENTOS</small></span></a><p>Un buen viaje merece un gran lugar.</p><div class="social-links" id="social-links" aria-label="Redes sociales"></div></div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Nexo Óptimo Alojamientos</span><div><a href="#alojamientos">Alojamientos</a><a href="#contacto">Contacto</a></div><span>Hecho para disfrutar el camino.</span></div>
+  </footer>
+
+  <a class="whatsapp-bubble" id="whatsapp-link" href="#contacto" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.4 28.6l6.4-1.7A12.7 12.7 0 1 0 16 3.2Zm0 22.8c-2 0-4-.5-5.7-1.6l-.4-.2-3.8 1 1-3.7-.3-.4A10 10 0 1 1 16 26Zm5.5-7.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.9.6.8.3 1.5.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/></svg><span>Hablemos</span></a>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de alojamiento" hidden><button class="lightbox-close" type="button" aria-label="Cerrar galería">×</button><button class="lightbox-prev" type="button" aria-label="Imagen anterior">‹</button><img class="lightbox-image" src="" alt=""><button class="lightbox-next" type="button" aria-label="Imagen siguiente">›</button><p class="lightbox-caption"></p></div>
+</body>
+</html>
