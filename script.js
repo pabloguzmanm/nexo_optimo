@@ -159,7 +159,7 @@ const PROPERTY_DATA = [
     category: "Un respiro junto al mar",
     location: "Av. Borgoño 19300, Concón",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.%20Borgo%C3%B1o%2019300%2C%20Conc%C3%B3n",
-    description: "Un espacio luminoso para desconectar, recargar energías y disfrutar cada momento.Hermoso Depto, 1 Linea Roca Mar Sector Costa Brava se encuentra a solo 9 min a pie de Playa de Los Lilenes y ofrece alojamiento en Concón con jardín y terraza, además de recepción 24 horas. Este apartamento ofrece wifi gratis, una cocina totalmente equipada y un patio.Este apartamento con vistas al mar dispone de suelo de parquet, 1 dormitorio y 1 baño con ducha, bañera y secador de pelo. Se ofrece TV de pantalla plana con canales por cable.Se puede disfrutar de la piscina cubierta en el apartamento.A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.",
+    description: "Un espacio luminoso para desconectar, recargar energías y disfrutar cada momento.Hermoso Depto, 1 Linea Roca Mar Sector Costa Brava se encuentra a solo 9 min a pie de Playa de Los Lilenes y ofrece alojamiento en Concón con jardín y terraza, además de recepción 24 horas. Este apartamento ofrece wifi gratis, una cocina totalmente equipada y un patio. Se ofrece TV de pantalla plana con canales por cable.Se puede disfrutar de la piscina cubierta en el apartamento.A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.",
     accommodationDetails: "3 huéspedes · 1 habitación · 3 camas · 1 baño",
     price: "",
     images: ROCAMAR_IMAGES,
@@ -173,7 +173,7 @@ const PROPERTY_DATA = [
     category: "Un respiro junto al mar",
     location: "Av. Borgoño 19300, Concón",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.%20Borgo%C3%B1o%2019300%2C%20Conc%C3%B3n",
-    description: "Un espacio luminoso para desconectar, recargar energías y disfrutar cada momento.Hermoso Depto, 1 Linea Roca Mar Sector Costa Brava se encuentra a solo 9 min a pie de Playa de Los Lilenes y ofrece alojamiento en Concón con jardín y terraza, además de recepción 24 horas. Este apartamento ofrece wifi gratis, una cocina totalmente equipada y un patio.Este apartamento con vistas al mar dispone de suelo de parquet, 1 dormitorio y 1 baño con ducha, bañera y secador de pelo. Se ofrece TV de pantalla plana con canales por cable.Se puede disfrutar de la piscina cubierta en el apartamento.A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.",
+    description: "Un espacio luminoso para desconectar, recargar energías y disfrutar cada momento.Hermoso Depto, 1 Linea Roca Mar Sector Costa Brava se encuentra a solo 9 min a pie de Playa de Los Lilenes y ofrece alojamiento en Concón con jardín y terraza, además de recepción 24 horas. Este apartamento ofrece wifi gratis, una cocina totalmente equipada y un patio. Se ofrece TV de pantalla plana con canales por cable.Se puede disfrutar de la piscina cubierta en el apartamento.A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.",
     accommodationDetails: "3 huéspedes · 1 habitación · 3 camas · 1 baño",
     price: "",
     images: ROCAMAR_IMAGES,
@@ -223,9 +223,9 @@ function renderProperties() {
     const priceLabel = property.price ? property.price : "Valor a consultar";
     const isUnavailable = property.available === false;
     const mapUrl = safeUrl(property.mapUrl);
-    const location = mapUrl
-      ? `<a class="location map-location" href="${mapUrl}" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de ${property.name} en Google Maps: ${property.location}" title="${property.location}">Ver mapa ↗</a>`
-      : `<span class="location">${property.location}</span>`;
+    const mapLink = mapUrl
+      ? `<a class="map-location" href="${mapUrl}" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de ${property.name} en Google Maps">Ver mapa ↗</a>`
+      : "";
     return `
       <article class="property-card${isUnavailable ? " is-unavailable" : ""}">
         <button class="card-photo" type="button" data-property="${propertyIndex}" aria-label="Ver fotos de ${property.name}">
@@ -234,7 +234,8 @@ function renderProperties() {
           ${isUnavailable ? '<span class="availability-badge">ARRENDADO · NO DISPONIBLE</span>' : ""}
         </button>
         <div class="card-body">
-          <div class="card-kicker"><span>${property.category}</span>${location}</div>
+          <div class="card-kicker"><span>${property.category}</span></div>
+          <div class="property-location"><span class="location-address">${property.location}</span>${mapLink}</div>
           <h3>${property.name}</h3>
           <p class="card-description">${property.description}</p>
           ${property.accommodationDetails ? `<div class="card-detail"><span class="detail-dot" aria-hidden="true"></span>${property.accommodationDetails}</div>` : ""}

@@ -8,3 +8,6 @@
 .contact-social-links{margin-top:24px}
 .contact-social-links .contact-whatsapp-link{color:#25a95a}
 .contact-social-links .contact-whatsapp-link svg{fill:currentColor}
+.property-location{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 10px;margin:-4px 0 14px;font-size:10px}
+.location-address{color:#747a73}
+.property-location .map-location{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
