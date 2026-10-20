@@ -188,9 +188,8 @@ const SITE_CONTACT = {
   whatsappNumber: "56998499131",
   videoUrl: "",
   social: {
-    instagram: "",
-    facebook: "",
-    tiktok: ""
+    instagram: "https://www.instagram.com/nexooptimo/",
+    facebook: ""
   }
 };
 
@@ -319,19 +318,35 @@ function configureSiteLinks() {
     });
   }
 
-  const socialNames = { instagram: "IG", facebook: "f", tiktok: "♪" };
-  const socialLinks = document.querySelector("#social-links");
-  socialLinks.innerHTML = Object.entries(SITE_CONTACT.social)
-    .map(([name, url]) => safeUrl(url)
-      ? `<a href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en ${name}">${socialNames[name]}</a>`
-      : `<a class="is-disabled" href="#contacto" aria-disabled="true" title="Agrega el perfil oficial de ${name} en script.js" aria-label="Perfil de ${name} pendiente de configurar">${socialNames[name]}</a>`)
-    .join("");
-  socialLinks.addEventListener("click", (event) => {
-    if (event.target.closest(".is-disabled")) {
-      event.preventDefault();
-      document.querySelector("#form-status").textContent = "Los perfiles oficiales de redes sociales aún no están configurados.";
+  const socialIcons = {
+    instagram: (gradientId) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><defs><linearGradient id="${gradientId}" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#feda75"/><stop offset="50%" stop-color="#d62976"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="url(#${gradientId})" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="url(#${gradientId})" stroke-width="2"/><circle cx="17.6" cy="6.7" r="1.15" fill="#d62976"/></svg>`,
+    facebook: () => '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#0866ff" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.022 10.125 11.854v-8.385H7.078v-3.469h3.047V9.429c0-3.025 1.792-4.699 4.533-4.699 1.312 0 2.686.235 2.686.235v2.969h-1.513c-1.491 0-1.956.93-1.956 1.886v2.253h3.328l-.532 3.469h-2.796v8.385C19.612 23.095 24 18.092 24 12.073Z"/></svg>'
+  };
+  const configureSocialIcons = (container, includeWhatsapp = false) => {
+    container.innerHTML = Object.entries(SITE_CONTACT.social)
+      .map(([name, url]) => {
+        const icon = socialIcons[name](`${container.id}-${name}-gradient`);
+        const safe = safeUrl(url);
+        return safe
+          ? `<a href="${safe}" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en ${name}">${icon}</a>`
+          : `<a class="is-disabled" href="#contacto" aria-disabled="true" title="Agrega el perfil oficial de ${name} en script.js" aria-label="Perfil de ${name} pendiente de configurar">${icon}</a>`;
+      })
+      .join("");
+
+    if (includeWhatsapp && number) {
+      container.insertAdjacentHTML("beforeend", `<a class="contact-whatsapp-link" href="${safeUrl(whatsappLink.href)}" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">${whatsappLink.querySelector("svg").outerHTML}</a>`);
     }
-  });
+
+    container.addEventListener("click", (event) => {
+      if (event.target.closest(".is-disabled")) {
+        event.preventDefault();
+        document.querySelector("#form-status").textContent = "Los perfiles oficiales de redes sociales aún no están configurados.";
+      }
+    });
+  };
+
+  configureSocialIcons(document.querySelector("#social-links"));
+  configureSocialIcons(document.querySelector("#contact-social-links"), true);
 }
 
 propertyGrid.addEventListener("click", (event) => {

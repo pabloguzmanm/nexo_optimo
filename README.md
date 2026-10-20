@@ -9,7 +9,7 @@ Completa los datos de cada propiedad en `script.js`, dentro de `PROPERTY_DATA`:
 - `bookingUrl`, `airbnbUrl` y `videoUrl` para cada propiedad.
 - `mapUrl` para agregar un enlace a Google Maps en la ubicación de una propiedad.
 - `price` y `description` con tarifas y características confirmadas.
-- URL de `instagram`, `facebook` y `tiktok` para mostrar esos accesos en el pie de página.
+- El Instagram oficial `@nexooptimo` ya está configurado. Agrega la URL de `facebook` para mostrar ese acceso en el pie de página.
 - `SITE_CONTACT.videoUrl` para activar el botón de video general.
 
 El correo y WhatsApp de contacto ya están configurados en `SITE_CONTACT`. Los formularios preparan un correo dirigido a ese email; el formulario de reserva también prepara un mensaje para WhatsApp. Como el sitio es estático, el visitante debe confirmar el envío en sus aplicaciones de correo y WhatsApp.
