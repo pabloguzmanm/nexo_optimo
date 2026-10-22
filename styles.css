@@ -673,3 +673,15 @@ body{
     bottom: 16px;
   }
 }
+
+.whatsapp-bubble{
+  left: 22px;
+  right: auto;
+}
+
+@media (max-width: 650px){
+  .whatsapp-bubble{
+    left: 16px;
+    right: auto;
+  }
+}
