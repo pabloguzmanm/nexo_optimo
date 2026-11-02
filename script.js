@@ -132,7 +132,7 @@ const PROPERTY_DATA = [
     accommodationDetails: "6 huéspedes · 2 habitaciones · 3 camas · 2 baños",
     price: "",
     images: CARABELA_IMAGES,
-    coverImage: CARABELA_IMAGES[2],
+    coverImage: CARABELA_IMAGES[4],
     bookingUrl: "https://www.booking.com/hotel/cl/el-encanto-renca-vina-del-mar.es.html?label=mkt123sc-d3d69d73-5d13-4fb2-a4a6-001c07e47d32&sid=38c2de9a2fe8101fab09c0ac55739435&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     airbnbUrl: "https://www.airbnb.cl/rooms/41408938?guests=1&adults=1&s=67&unique_share_id=7ab2cad2-fa4a-4f1f-bb9e-0da7d4a9d75e",
     videoUrl: ""
@@ -148,7 +148,7 @@ const PROPERTY_DATA = [
     available: false,
     price: "",
     images: INFINITY_IMAGES,
-    coverImage: INFINITY_IMAGES[6],
+    coverImage: INFINITY_IMAGES[16],
     bookingUrl: "",
     airbnbUrl: "",
     videoUrl: ""
@@ -177,6 +177,7 @@ const PROPERTY_DATA = [
     accommodationDetails: "3 huéspedes · 1 habitación · 3 camas · 1 baño",
     price: "",
     images: ROCAMAR_IMAGES,
+    coverImage: ROCAMAR_IMAGES[1],
     bookingUrl: "https://www.booking.com/hotel/cl/hermoso-depto-1linea-roca-mar-sector-costa-brava.es.html?label=mkt123sc-502d6985-0800-40f6-a21f-2c20dc777f06&sid=38c2de9a2fe8101fab09c0ac55739435&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     airbnbUrl: "https://www.airbnb.cl/rooms/49380035?guests=1&adults=1&s=67&unique_share_id=501da11d-fc8e-4e52-92ad-f94bb9f98f50",
     videoUrl: ""
