@@ -766,3 +766,9 @@ body{
   line-height: 1;
   cursor: pointer;
 }
+
+@media (min-width: 651px){
+  .video-dialog{
+    width: min(520px, calc((100vh - 100px) * 9 / 16), calc(100vw - 32px));
+  }
+}
