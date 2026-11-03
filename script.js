@@ -139,7 +139,7 @@ const PROPERTY_DATA = [
     images: ROCAMAR_1_IMAGES,
     bookingUrl: "https://www.booking.com/hotel/cl/hermoso-depto-1linea-roca-mar-sector-costa-brava.es.html?label=gen173nr-10CAsoL0IwaGVybW9zby1kZXB0by0xbGluZWEtcm9jYS1tYXItc2VjdG9yLWNvc3RhLWJyYXZhSDNYBGgviAEBmAEzuAEZyAEM2AED6AEB-AEBiAIBqAIBuAKU6qTWBsACAdICJDNkOTQ3YjFiLTgzOGUtNDUwMy04MTRiLTU5ZTM4YjdlNGFhONgCAeACAQ&sid=e15ade3a4eea3f065cf0fbc0c2d6ee90&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     airbnbUrl: "https://www.airbnb.cl/rooms/49380035?guests=1&adults=1&s=67&unique_share_id=501da11d-fc8e-4e52-92ad-f94bb9f98f50",
-    videoUrl: ""
+    videoUrl: "https://youtube.com/shorts/2cW-TPRv_LA"
   },
   {
     id: "rocamar-2",
@@ -154,7 +154,7 @@ const PROPERTY_DATA = [
     coverImage: ROCAMAR_2_IMAGES[1],
     bookingUrl: "https://www.booking.com/hotel/cl/hermoso-depto-1linea-roca-mar-sector-costa-brava.es.html?label=mkt123sc-502d6985-0800-40f6-a21f-2c20dc777f06&sid=38c2de9a2fe8101fab09c0ac55739435&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     airbnbUrl: "https://www.airbnb.cl/rooms/49380035?guests=1&adults=1&s=67&unique_share_id=501da11d-fc8e-4e52-92ad-f94bb9f98f50",
-    videoUrl: ""
+    videoUrl: "https://youtube.com/shorts/2cW-TPRv_LA"
   }
 ];
 
@@ -220,7 +220,9 @@ function renderProperties() {
           <div class="card-actions">
             ${actionLink("Booking ↗", property.bookingUrl)}
             ${actionLink("Airbnb ↗", property.airbnbUrl)}
-            ${actionLink("Video ↗", property.videoUrl, "video-action")}
+            ${youtubeEmbedUrl(property.videoUrl)
+              ? `<button class="video-action" type="button" data-video-property="${propertyIndex}" aria-label="Ver video de ${property.name}">Video ↗</button>`
+              : actionLink("Video ↗", property.videoUrl, "video-action")}
           </div>
         </div>
       </article>`;
@@ -258,6 +260,43 @@ function closeGallery() {
   lightbox.hidden = true;
   document.body.style.overflow = "";
   galleryProperty = null;
+}
+
+function youtubeEmbedUrl(value) {
+  const safe = safeUrl(value);
+  if (!safe) return "";
+
+  const videoUrl = new URL(safe);
+  const videoId = videoUrl.hostname === "youtube.com" || videoUrl.hostname === "www.youtube.com"
+    ? videoUrl.pathname.match(/^\/shorts\/([A-Za-z0-9_-]+)\/?$/)?.[1]
+    : "";
+  return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0` : "";
+}
+
+const videoLightbox = document.querySelector("#video-lightbox");
+let videoTrigger = null;
+
+function showVideo(propertyIndex, trigger) {
+  const property = PROPERTY_DATA[propertyIndex];
+  const embedUrl = youtubeEmbedUrl(property.videoUrl);
+  if (!embedUrl) return;
+
+  videoTrigger = trigger;
+  videoLightbox.querySelector(".video-title").textContent = `${property.name} · Video`;
+  const frame = videoLightbox.querySelector("iframe");
+  frame.title = `Video de ${property.name}`;
+  frame.src = embedUrl;
+  videoLightbox.hidden = false;
+  document.body.style.overflow = "hidden";
+  videoLightbox.querySelector(".video-close").focus();
+}
+
+function closeVideo() {
+  videoLightbox.hidden = true;
+  videoLightbox.querySelector("iframe").src = "";
+  document.body.style.overflow = "";
+  videoTrigger?.focus();
+  videoTrigger = null;
 }
 
 function configureSiteLinks() {
@@ -326,8 +365,19 @@ function configureSiteLinks() {
 }
 
 propertyGrid.addEventListener("click", (event) => {
+  const videoButton = event.target.closest(".video-action[data-video-property]");
+  if (videoButton) {
+    showVideo(Number(videoButton.dataset.videoProperty), videoButton);
+    return;
+  }
+
   const button = event.target.closest(".card-photo");
   if (button) showGallery(Number(button.dataset.property));
+});
+
+videoLightbox.querySelector(".video-close").addEventListener("click", closeVideo);
+videoLightbox.addEventListener("click", (event) => {
+  if (event.target === videoLightbox) closeVideo();
 });
 
 lightbox.querySelector(".lightbox-close").addEventListener("click", closeGallery);
@@ -343,6 +393,10 @@ lightbox.addEventListener("click", (event) => {
   if (event.target === lightbox) closeGallery();
 });
 document.addEventListener("keydown", (event) => {
+  if (!videoLightbox.hidden && event.key === "Escape") {
+    closeVideo();
+    return;
+  }
   if (lightbox.hidden) return;
   if (event.key === "Escape") closeGallery();
   if (event.key === "ArrowLeft") lightbox.querySelector(".lightbox-prev").click();
