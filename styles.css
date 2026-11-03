@@ -769,6 +769,12 @@ body{
 
 @media (min-width: 651px){
   .video-dialog{
-    width: min(520px, calc((100vh - 100px) * 9 / 16), calc(100vw - 32px));
+    width: min(600px, calc((100vh - 70px) * 9 / 16 + 30px), calc(100vw - 32px));
+    padding: 12px;
+  }
+
+  .video-title{
+    margin-bottom: 8px;
+    font-size: 18px;
   }
 }
