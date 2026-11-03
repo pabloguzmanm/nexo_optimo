@@ -161,7 +161,7 @@ const PROPERTY_DATA = [
 const SITE_CONTACT = {
   email: "pedro.gutierrez.g@gmail.com",
   whatsappNumber: "56998499131",
-  videoUrl: "",
+  videoUrl: "https://youtube.com/shorts/2cW-TPRv_LA",
   social: {
     instagram: "https://www.instagram.com/nexooptimo/",
     facebook: ""
@@ -276,19 +276,23 @@ function youtubeEmbedUrl(value) {
 const videoLightbox = document.querySelector("#video-lightbox");
 let videoTrigger = null;
 
-function showVideo(propertyIndex, trigger) {
-  const property = PROPERTY_DATA[propertyIndex];
-  const embedUrl = youtubeEmbedUrl(property.videoUrl);
+function showVideoUrl(videoUrl, title, trigger) {
+  const embedUrl = youtubeEmbedUrl(videoUrl);
   if (!embedUrl) return;
 
   videoTrigger = trigger;
-  videoLightbox.querySelector(".video-title").textContent = `${property.name} · Video`;
+  videoLightbox.querySelector(".video-title").textContent = title;
   const frame = videoLightbox.querySelector("iframe");
-  frame.title = `Video de ${property.name}`;
+  frame.title = title;
   frame.src = embedUrl;
   videoLightbox.hidden = false;
   document.body.style.overflow = "hidden";
   videoLightbox.querySelector(".video-close").focus();
+}
+
+function showVideo(propertyIndex, trigger) {
+  const property = PROPERTY_DATA[propertyIndex];
+  showVideoUrl(property.videoUrl, `${property.name} · Video`, trigger);
 }
 
 function closeVideo() {
@@ -303,13 +307,16 @@ function configureSiteLinks() {
   const videoLink = document.querySelector("#video-link");
   const videoUrl = safeUrl(SITE_CONTACT.videoUrl);
   if (videoUrl) {
-    videoLink.href = videoUrl;
-    videoLink.target = "_blank";
-    videoLink.rel = "noopener noreferrer";
+    videoLink.href = "#video";
+    videoLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      showVideoUrl(videoUrl, "Conoce nuestros espacios · Video", videoLink);
+    });
   } else {
     videoLink.classList.add("is-disabled");
     videoLink.setAttribute("aria-disabled", "true");
     videoLink.title = "Agrega el enlace del video en script.js";
+    videoLink.addEventListener("click", (event) => event.preventDefault());
   }
 
   const emailLink = document.querySelector("#contact-email");
