@@ -14,6 +14,6 @@ Completa los datos de cada propiedad en `script.js`, dentro de `PROPERTY_DATA`:
 
 El correo y WhatsApp de contacto ya están configurados en `SITE_CONTACT`. Los formularios preparan un correo dirigido a ese email; el formulario de reserva también prepara un mensaje para WhatsApp. Como el sitio es estático, el visitante debe confirmar el envío en sus aplicaciones de correo y WhatsApp.
 
-Las imágenes están en `propiedades/carabela` (Carabela), `propiedades/infinity` (Infinity) y `propiedades/rocamar` (Rocamar 1 y Rocamar 2). Las galerías de Carabela e Infinity usan `CARABELA_IMAGES` e `INFINITY_IMAGES`, respectivamente; ambas unidades de Rocamar muestran las imágenes de esa carpeta mediante `ROCAMAR_IMAGES`. Puedes editar estas listas en `script.js` para asignar otras fotos.
+Las imágenes están en `propiedades/carabela` (Carabela), `propiedades/infinity` (Infinity), `propiedades/rocamar1` (Rocamar 1) y `propiedades/rocamar2` (Rocamar 2). Las galerías de Rocamar siguen el orden numérico de sus archivos (`1.jpeg`, `2.jpeg`, etc.); sus listas se generan en `script.js`.
 
 > El formulario utiliza el programa de correo de quien lo envía. Para recibir consultas sin que el visitante abra su aplicación de correo, conecta un servicio de formularios o un backend antes de publicar.

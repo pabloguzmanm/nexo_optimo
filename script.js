@@ -2,41 +2,15 @@
  * Personaliza los datos y enlaces de cada alojamiento en PROPERTY_DATA.
  * Los enlaces quedan desactivados hasta que agregues las URL reales.
  */
-const ROCAMAR_IMAGES = [
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.58.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.58 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.58 (2).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.59.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.59 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.59 (2).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.59 (3).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.44.59 (4).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.00.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.01.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.01 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.01 (2).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.02.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.02 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.03.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.03 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.04.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.04 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.05.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.05 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.05 (2).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.06.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.07.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.07 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.07 (2).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.07 (3).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.08.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.08 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.08 (2).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.08 (3).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.09.jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.09 (1).jpeg",
-  "propiedades/rocamar/WhatsApp Image 2026-10-08 at 12.45.09 (2).jpeg"
-];
+const ROCAMAR_1_IMAGES = Array.from(
+  { length: 43 },
+  (_, index) => `propiedades/rocamar1/${index + 1}.jpeg`
+);
+
+const ROCAMAR_2_IMAGES = Array.from(
+  { length: 40 },
+  (_, index) => `propiedades/rocamar2/${index + 1}.jpeg`
+);
 
 const CARABELA_IMAGES = [
   "propiedades/carabela/WhatsApp Image 2026-10-08 at 12.47.17.jpeg",
@@ -162,7 +136,7 @@ const PROPERTY_DATA = [
     description: "Un espacio luminoso para desconectar, recargar energías y disfrutar cada momento.Hermoso Depto, 1 Linea Roca Mar Sector Costa Brava se encuentra a solo 9 min a pie de Playa de Los Lilenes y ofrece alojamiento en Concón con jardín y terraza, además de recepción 24 horas. Este apartamento ofrece wifi gratis, una cocina totalmente equipada y un patio. Se ofrece TV de pantalla plana con canales por cable.Se puede disfrutar de la piscina cubierta en el apartamento.A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.",
     accommodationDetails: "3 huéspedes · 1 habitación · 3 camas · 1 baño",
     price: "",
-    images: ROCAMAR_IMAGES,
+    images: ROCAMAR_1_IMAGES,
     bookingUrl: "https://www.booking.com/hotel/cl/hermoso-depto-1linea-roca-mar-sector-costa-brava.es.html?label=gen173nr-10CAsoL0IwaGVybW9zby1kZXB0by0xbGluZWEtcm9jYS1tYXItc2VjdG9yLWNvc3RhLWJyYXZhSDNYBGgviAEBmAEzuAEZyAEM2AED6AEB-AEBiAIBqAIBuAKU6qTWBsACAdICJDNkOTQ3YjFiLTgzOGUtNDUwMy04MTRiLTU5ZTM4YjdlNGFhONgCAeACAQ&sid=e15ade3a4eea3f065cf0fbc0c2d6ee90&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     airbnbUrl: "https://www.airbnb.cl/rooms/49380035?guests=1&adults=1&s=67&unique_share_id=501da11d-fc8e-4e52-92ad-f94bb9f98f50",
     videoUrl: ""
@@ -176,8 +150,8 @@ const PROPERTY_DATA = [
     description: "Un espacio luminoso para desconectar, recargar energías y disfrutar cada momento.Hermoso Depto, 1 Linea Roca Mar Sector Costa Brava se encuentra a solo 9 min a pie de Playa de Los Lilenes y ofrece alojamiento en Concón con jardín y terraza, además de recepción 24 horas. Este apartamento ofrece wifi gratis, una cocina totalmente equipada y un patio. Se ofrece TV de pantalla plana con canales por cable.Se puede disfrutar de la piscina cubierta en el apartamento.A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.",
     accommodationDetails: "3 huéspedes · 1 habitación · 3 camas · 1 baño",
     price: "",
-    images: ROCAMAR_IMAGES,
-    coverImage: ROCAMAR_IMAGES[1],
+    images: ROCAMAR_2_IMAGES,
+    coverImage: ROCAMAR_2_IMAGES[1],
     bookingUrl: "https://www.booking.com/hotel/cl/hermoso-depto-1linea-roca-mar-sector-costa-brava.es.html?label=mkt123sc-502d6985-0800-40f6-a21f-2c20dc777f06&sid=38c2de9a2fe8101fab09c0ac55739435&dist=0&keep_landing=1&sb_price_type=total&type=total&",
     airbnbUrl: "https://www.airbnb.cl/rooms/49380035?guests=1&adults=1&s=67&unique_share_id=501da11d-fc8e-4e52-92ad-f94bb9f98f50",
     videoUrl: ""
