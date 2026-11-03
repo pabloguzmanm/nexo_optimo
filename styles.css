@@ -686,7 +686,8 @@ body{
   }
 }
 
-.card-actions .video-action{
+.card-actions a.video-action,
+.card-actions button.video-action{
   display: inline-flex;
   align-items: center;
   border: 1px solid #d5dbce;
